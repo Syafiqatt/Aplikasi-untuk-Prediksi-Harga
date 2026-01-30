@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Pricing AI</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div style="text-align: center;">
+            <span class="ai-badge">🤖 AI Powered Engine</span>
+        </div>
+        
+        <h2>Smart Pricing Prediction</h2>
+        <p class="subtitle">Optimalkan harga jual berdasarkan data pasar</p>
+
+        <form method="POST">
+            <div class="form-group">
+                <label>📊 Demand Forecast (Perkiraan Permintaan)</label>
+                <input type="number" name="demand" min="0" required placeholder="Contoh: 150, 300 (Unit)">
+            </div>
+
+            <div class="form-group">
+                <label>📦 Stock Quantity (Stok Gudang)</label>
+                <input type="number" name="stock" min="0" required placeholder="Contoh: 50, 500 (Unit)">
+            </div>
+
+            <div class="form-group">
+                <label>🏷️ Competitor Price (Harga Pesaing)</label>
+                <input type="number" step="0.01" name="competition" min="0" required placeholder="Contoh: 50.00, 120.50 ($)">
+            </div>
+
+            <button type="submit">🚀 Hitung Harga Optimal</button>
+        </form>
+
+        {% if price %}
+        <div class="result">
+            <h3>💰 Rekomendasi Harga: ${{ price }}</h3>
+            <p style="color: white; font-size: 0.9em; margin-top: 5px;">Berdasarkan analisis kondisi pasar saat ini</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
